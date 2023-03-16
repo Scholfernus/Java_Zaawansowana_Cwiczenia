@@ -1,11 +1,18 @@
 package org.example.Java_Advanced_Zad_Nr_2;
 
 public class Student extends Person {
-public String kindStudy;
-public int yearStudy;
-public double costStudy;
+private String kindStudy;
+private int yearStudy;
+private float costStudy;
 
-    public Student(String kindStudy, int yearStudy, double costStudy) {
+    public Student(String kindStudy, int yearStudy, float costStudy) {
+        this.kindStudy = kindStudy;
+        this.yearStudy = yearStudy;
+        this.costStudy = costStudy;
+    }
+
+    public Student(String name, String address, String kindStudy, int yearStudy, float costStudy) {
+        super(name, address);
         this.kindStudy = kindStudy;
         this.yearStudy = yearStudy;
         this.costStudy = costStudy;
@@ -31,7 +38,7 @@ public double costStudy;
         this.yearStudy = yearStudy;
     }
 
-    public void setCostStudy(double costStudy) {
+    public void setCostStudy(float costStudy) {
         this.costStudy = costStudy;
     }
 
@@ -41,6 +48,8 @@ public double costStudy;
                 "kindStudy='" + kindStudy + '\'' +
                 ", yearStudy=" + yearStudy +
                 ", costStudy=" + costStudy +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
                 '}';
     }
 }

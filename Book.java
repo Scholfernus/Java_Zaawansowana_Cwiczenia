@@ -1,57 +1,47 @@
-package org.example.Zadania_Zaawansowana.Books;
+package pl.sdajavapol141.Task01;
 
-public class Book {
-    public String title;
-    public String author;
-    public String ISBN;
-    public int year;
 
-    public Book(String title, String author, String ISBN, int year) {
-        this.title = title;
-        this.author = author;
-        this.ISBN = ISBN;
-        this.year = year;
-    }
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-    public String getTitle() {
-        return title;
-    }
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class Book implements Comparable<Book>{
+    private String title;
+    private String author;
+    private int editionYear;
+    private int copies;
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+    @Override
+    public int compareTo(Book o) {
+        if (o == null){
+            return 1;
+        }
+        if (title == null){
+            return -1;
+        }
+        if (title.compareToIgnoreCase(o.title) == 0){
+            if (author.compareToIgnoreCase(o.author) == 0){
+                if (editionYear == o.editionYear){
+                    return Integer.compare(copies, o.copies);
+                } else {
+                    return Integer.compare(editionYear, o.editionYear);
+                }
+            } else {
+                return author.compareToIgnoreCase(o.author);
+            }
+        } else {
+            return title.compareToIgnoreCase(o.title);
+        }
 
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public String getISBN() {
-        return ISBN;
-    }
-
-    public void setISBN(String ISBN) {
-        this.ISBN = ISBN;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
     }
 
     @Override
     public String toString() {
-        return "Book{" +
-                "title='" + title + '\'' +
-                ", author='" + author + '\'' +
-                ", ISBN='" + ISBN + '\'' +
-                ", year=" + year +
-                '}';
+        return String.format("%-20s %-20s %5d %3d",title,author,editionYear,copies);
     }
 }

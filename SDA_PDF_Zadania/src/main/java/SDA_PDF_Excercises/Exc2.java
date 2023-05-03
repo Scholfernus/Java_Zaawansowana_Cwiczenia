@@ -15,12 +15,12 @@ public class Exc2 {
             tab[i] = numbers.nextInt();
         }
         System.out.println(Arrays.toString(tab));
-        for (int i = 0; i < tab.length - 1; i++) {
-            for (int j = tab.length - 1; j > 0; j--) {
-                if (tab[tab.length-1] < tab[tab.length-2]) {
-                    int temp = tab[tab.length-1];
-                    tab[tab.length-1] = tab[tab.length-2];
-                    tab[tab.length-2] = temp;
+        for (int i = 0; i < tab.length-1; i++) {
+            for (int j = 0; j < tab.length-1; j++) {
+                if (tab[j] > tab[i+1]) {
+                    int temp = tab[i+1];
+                    tab[i+1] = tab[j];
+                    tab[j] = temp;
                 }
             }
         }

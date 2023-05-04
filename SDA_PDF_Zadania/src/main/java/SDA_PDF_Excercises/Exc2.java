@@ -15,15 +15,29 @@ public class Exc2 {
             tab[i] = numbers.nextInt();
         }
         System.out.println(Arrays.toString(tab));
-        for (int i = 0; i < tab.length-1; i++) {
-            for (int j = 0; j < tab.length-1; j++) {
-                if (tab[j] > tab[i+1]) {
-                    int temp = tab[i+1];
-                    tab[i+1] = tab[j];
+        for (int i = 0; i < tab.length - 1; i++) {
+            for (int j = 0; j < tab.length - 1; j++) {
+                if (tab[j] > tab[i + 1]) {
+                    int temp = tab[i + 1];
+                    tab[i + 1] = tab[j];
                     tab[j] = temp;
                 }
             }
         }
         System.out.println(Arrays.toString(tab));
+        for (int i = 0; i < (n - 1); i++) {
+            for (int j = 0; j < n - i - 1 ; j++){
+                if (tab[j] > tab[j + 1]) {
+                    int temp2 = tab[j];
+                    tab[j] = tab[j + 1];
+                    tab[j + 1] = temp2;
+                }
+            }
+
+        }
+        System.out.println("Sorted list 2-nd version");
+        for (int i = 0; i < n; i++) {
+            System.out.print(tab[i]+", ");
+        }
     }
 }
